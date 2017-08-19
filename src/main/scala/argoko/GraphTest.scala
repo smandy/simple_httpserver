@@ -19,8 +19,7 @@ case class Node( nodeId : String, deps : List[String]) {
     if ( dependents.exists(prev.contains) ) {
       true
     } else {
-      val newPrev = prev + this
-      dependents.exists( _.containsCycle( newPrev) )
+      dependents.exists( _.containsCycle( prev + this ) )
     }
   }
 
